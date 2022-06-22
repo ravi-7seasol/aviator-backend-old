@@ -68,7 +68,7 @@ class UserController {
         }
         const model = new User(newUser);
         try {
-            const alreadyExist = await User.getByEmail(req.body.email);
+            const alreadyExist = await User.getUserByMobileOrEmail(req.body.email);
             if (!alreadyExist) {
 
                 const saveResponse = await model.save();
